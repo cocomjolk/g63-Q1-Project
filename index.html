@@ -7,17 +7,28 @@
     src="https://code.jquery.com/jquery-3.2.1.js"
     integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
     crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     <script defer type="text/javascript" src="app.js"></script>
+    <!-- <div class="alert alert-success" role="alert">Test</div> -->
   </head>
 
   <body>
-    <h1>Flickr Slot Machine</h1>
-    <audio id="audio_preview" src="file:///Users/michaelquiroz/Downloads/170331__siriuss22__yzlaugh3.ogg"></audio>
-    <form id="tagSearch">
-      <input type="text"></input>
-      <input type="submit" value="Pull"></input>
-      <div id="imageResults"></div>
+    <!-- <h1 class="text-center">Flickr Slot Machine</h1> -->
+
+    <audio id="themeMusic" src="Sounds/blackCircusMusic.wav"></audio>
+    <audio id="pullSound" src="Sounds/chaChing.wav"></audio>
+    <audio id="winSoundEvilLaugh" src="file:///Users/michaelquiroz/Downloads/170331__siriuss22__yzlaugh3.ogg"></audio>
+    <audio id="winSoundOther" src="Sounds/winCoins.wav"></audio>
+    <audio id="loseSound" src="Sounds/loseEvil.wav"></audio>
+
+    <form id="container">
+
+      <div id="imageResults">
+        <button id="button" type="button"class="btn btn-primary btn-lg">Pull</button>
+
+      </div>
     </form>
+
   </body>
 </html>

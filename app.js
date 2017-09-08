@@ -1,60 +1,65 @@
-// can fetch thrree photos based on hardcoded tagSearch
+// can fetch thrree photos based on hardcoded container
 //don't know how to make get URL dynamic to change
 //the tag. entering in a variable or putting on different lines
 //Breaks the $get URL.
 //Could not use match() function insode timeout function, got error
 //had trouble changing picture size, was going to use vanilla JS for dom manipulation
 //to create an element but manipulated the card instead.
+//1. are the `` symbol and method the most efficient way of adding to the DOM??
 
+//$("#themeMusic")[0].play();
 
-
-
-
-$('#tagSearch input[type=submit]').click(function(el){
-  $("#audio_preview")[0].play();
+$('#container button[type=button]').click(function(el){
+  $("#pullSound")[0].play();
   el.preventDefault();
-  //attempt to choose categoty.Not working!!!!
-  let tagSearch = $('#tagSearch input[type=text]').val();
+  //attempt to choose categoty with text input.Not working!!!!
+  // let container = $('#container input[type=text]').val();
   //displays text from search box to console.
 
   //removes the three images to clear the screen
   $( ".image" ).remove();
-
+  $( "#alerts" ).remove();
 
   let slotPics = [ getCatPics, getClownPics, getBunnyPics ]
   let numbers = [0,1,2];
   let randomNumberStr = '';
   let numberToMatch = '';
-  // var pullSound;
-  //
-  // function preload(){
-  //   pullSound = loadSound("")
-  // }
-
-
-
-
 
   for (let i = 0; i < numbers.length; i++) {
     let randomIndex = Math.floor(Math.random() * 3);
+    //will execute pic function based on random index
     slotPics[randomIndex]();
     randomNumberStr += randomIndex;
+    //used to match up
     numberToMatch += randomNumberStr[0];
   }
 
   setTimeout(function () {
-    if(numberToMatch === randomNumberStr){
-      console.log('test');
-      alert("YOU ARE A WINNER!!!")
-      if(numberToMatch==='111'){
-        //play scary laugh
-        //$("#audio_preview")[0].play();
+    if(randomNumberStr === '111'){
+        $("#winSoundEvilLaugh")[0].play();
+        let alert = `<div id="alerts" class="alert alert-success" role="alert">YOU WIN!!...But STILL LOSE
+                    </div>`
+        $('#container').append(alert);
+        let gif1 = `<div id="gifClown1"></div>`
+        $('#container').append(gif1);
       }
+      else if(numberToMatch === randomNumberStr){
+        $("#winSoundOther")[0].play();
+        let alert = `<div id="alerts" class="alert alert-success" role="alert">YOU WIN!!
+                    </div>`
+        $('#container').append(alert);
+        let gif1 = `<div id="gifWin"></div>`
+        $('#container').append(gif1);
+      }
+      else {
+      $("#loseSound")[0].play();
+      //alert('You lose, try again')
+      let alert = `<div id="alerts" class="alert alert-danger" role="alert">You lose!!
+                  </div>`
+
+      $('#container').append(alert);
     }
-    else {
-      alert('You lose, try again')
-    }
-  }, 1500);
+  }, 2000);
 
   console.log(randomNumberStr);
 
@@ -90,9 +95,8 @@ function getCatPics(){
       // let pic = document.createElement('div');
       // pic.classList.add('pic');
       // imageResults.append(pic);
-
       let card = `<div class="image">
-                    <img id="pic" src=${imageURL}>
+                    <img id="pic" src=${imageURL} class="img-rounded">
                   </div>`
       // let slot = document.createElement('div');
       // slot.classList.add('imgCss');
@@ -112,14 +116,14 @@ function getClownPics(){
       let secret = (data.photos.photo[randomIndex].secret);
       let imageURL = 'https://farm' + farm + '.staticflickr.com/' + server + '/' + id + '_' + secret + '.jpg'
       let card = `<div class="image">
-                    <img id="pic" src=${imageURL}>
+                    <img id="pic" src=${imageURL} class="img-rounded">
                   </div>`
       $('#imageResults').append(card);
   })
 };
 
 function getBunnyPics(){
-  let sharkFlickrUrlReq = ` https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=3a25eb776abf5b7fd797c0d8bf4c243e&tags=snake&format=json&nojsoncallback=1`
+  let sharkFlickrUrlReq = ` https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=3a25eb776abf5b7fd797c0d8bf4c243e&tags=pokemoncard&format=json&nojsoncallback=1`
   $.get(sharkFlickrUrlReq).done(function(data){
     let picInfo = data;
     let photoArr = data.photos.photo;
@@ -130,7 +134,7 @@ function getBunnyPics(){
       let secret = (data.photos.photo[randomIndex].secret);
       let imageURL = 'https://farm' + farm + '.staticflickr.com/' + server + '/' + id + '_' + secret + '.jpg'
       let card = `<div class="image">
-                    <img id="pic" src=${imageURL}>
+                    <img id="pic" src=${imageURL} class="img-rounded">
                   </div>`
       $('#imageResults').append(card);
   })

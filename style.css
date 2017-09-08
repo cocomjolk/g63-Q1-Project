@@ -1,17 +1,16 @@
 
-/*#imageResults{
-  width: 1200px;
-  height: 450px;
-  margin:  auto;
-  background: grey;
-  float: none;
-}*/
+body{
+background-color: #92a8d1;
 
-#imageResults{
-  height: 500px;
-  width: 100%;
-  margin: auto;
-  background: #92a8d1;
+}
+
+h1{
+  /*width: 600px;
+  margin: 0 auto;
+  font-family: Comic Sans MS;
+  background-color: gainsboro;
+  padding-left: 200px;
+  border-radius: 15px;*/
 }
 
 .image{
@@ -19,10 +18,50 @@
   margin: auto;
 }
 
+#imageResults{
+  background-image: url(https://lh4.ggpht.com/DZT6BJceDJr8dT2HJH6EUDdzU9yxqXSmOHPpZGWlTicdgEIvuuhQm7CPvdzTg-NRPA=h900);
+  height: 618px;
+    width: 79%;
+    margin: auto;
+    /* background: #92a8d1; */
+    padding-left: 17%;
+    padding-top: 9%;
+}
+
+/*pull button*/
+#button{
+  width: 9%;
+height: 22%;
+float: none;
+margin-bottom: -8%;
+margin-top: -30%;
+margin-left: -27%;
+}
+
+/*image being returned from flickr*/
 #pic{
-  height: 300px;
-  width: 200px;
-  margin: 5px;
-  border: 10px solid blue;
-  float: left;
+  height: 241px;
+    width: 192px;
+    margin: 12px;
+    margin-top: 0%;
+    border: 10px solid violet;
+    float: left;
+}
+
+#alerts{
+  padding-left: 50%;
+}
+
+#gifClown1{
+background-image: url(gifClown1.gif);
+height: 300px;
+width: 350px;
+margin-left: 40%;
+}
+
+#gifWin{
+background-image: url(gifWin.gif);
+height: 230px;
+width: 500px;
+margin-left: 30%;
 }
