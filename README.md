@@ -1,2 +1,6 @@
 # g63-Q1-Project
-Q1 project Pic slot machine 9/1/2017
+
+## tumblr Slot Machine
+![slot machine](https://github.com/cocomjolk/g63-Q1-Project/blob/master/slot%20machine.png?raw=true)
+
+
